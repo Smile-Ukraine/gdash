@@ -66,6 +66,14 @@ class GDash
       erb :index
     end
 
+    get '/sensu' do
+      if @top_level.empty?
+        @error = "No dashboards found in the templates directory"
+      end
+
+      erb :sensu, :layout => false
+    end
+
     get '/:category/:dash/details/:name' do
       options = {}
       if query_params[:print]
