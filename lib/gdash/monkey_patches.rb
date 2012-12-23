@@ -24,10 +24,6 @@ class Array
     end
 end
 
-class GraphiteGraph
-  attr_accessor :properties, :file
-end
-
 class Hash
   def rmerge!(other_hash)
     merge!(other_hash) do |key, oldval, newval|

@@ -1,0 +1,17 @@
+<%
+	  graphs_json = Array.new
+
+      @top_level.keys.sort.each do |category|
+        @top_level[category].dashboards.sort_by{|b| b[:name].to_s}.each do |board|
+          dash = @top_level[category].dashboard(board[:link])
+            dash.graphs.each do |graph|
+              graph[:graphite].critical_threshold.each do |threshold|
+                threshold["data"] = graph[:graphite].targets.to_a.first[1][:data]
+                graphs_json << threshold
+              end
+            end
+          end
+      end
+
+%>
+<%= graphs_json.to_json %>
