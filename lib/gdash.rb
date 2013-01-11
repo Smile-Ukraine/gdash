@@ -8,7 +8,7 @@ require 'json'
 class GDash
   require 'gdash/dashboard'
   require 'gdash/monkey_patches'
-  require 'gdash/thresholds'
+  require 'gdash/controlchart'
   require 'gdash/sinatra_app'
 
   attr_reader :graphite_base, :graphite_render, :graph_templates, :category, :dash_templates, :height, :width, :from, :until

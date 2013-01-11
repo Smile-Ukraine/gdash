@@ -88,7 +88,7 @@ class GDash
 
       graphs.keys.sort.map do |graph_name|
         {:name => graph_name, 
-         :graphite => GraphiteGraphThresholds.new(graphs[graph_name], overrides)}
+         :graphite => GraphiteGraphControlChart.new(graphs[graph_name], overrides)}
       end
     end
 
