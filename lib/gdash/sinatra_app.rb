@@ -99,7 +99,7 @@ class GDash
         @graphs = @intervals.map do |e|
           new_props = {:from => e[0], :title => "#{main_graph.properties[:title]} - #{e[1]}"}
           new_props = main_graph.properties.merge new_props
-          GraphiteGraph.new(main_graph.file, new_props)
+          GraphiteGraphControlChart.new(main_graph.file, new_props)
         end
       else
         @error = "No such graph available"
